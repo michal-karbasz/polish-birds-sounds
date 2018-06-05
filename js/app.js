@@ -6,7 +6,7 @@ $(function () {
     const birdName = $('.flex-container span');
     const description = $('.flex-container p');
     const noteImage = $('.flex-container .col');
-    const birdImage = $('.flex-container .col img');
+    const birdImage = $('.flex-container .col>img');
 
 
     description.slideUp();
