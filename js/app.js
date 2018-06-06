@@ -4,6 +4,8 @@ $(function () {
 // Slide down/up on click
     
     const birdName = $('.flex-container span');
+    const titImage = $('.flex-row-inner img'); //it's a bird image, not a...you know...
+    const titName = $('.flex-row-inner span');
     const description = $('.flex-container p');
     const noteImage = $('.flex-container .col');
     const birdImage = $('.flex-container .col>img');
@@ -14,6 +16,8 @@ $(function () {
     birdName.on ('click', function() {
        const $this = $(this);
        $this.parent().parent().find('.description p').slideToggle();
+       titName.css('display', 'block');
+       titImage.css('display', 'block');
     })
 
 //Add sound icon on mouse enter remove on mouseleave
