@@ -4,7 +4,7 @@ $(function () {
 // Slide down/up on click
     
     const birdName = $('.flex-container span');
-    const titImage = $('.flex-row-inner img'); //it's a bird image, not a...you know...
+    const titImage = $('.flex-row-inner img'); //it's a bird image, not an actual...you know...
     const titName = $('.flex-row-inner span');
     const description = $('.flex-container p');
     const noteImage = $('.flex-container .col');
@@ -39,6 +39,18 @@ $(function () {
     })
 
 // Add sounds on image click
+
+// Push all birds to an array
+console.log(birdImage)
+const birdArr = [];
+const birds = $('.flex-row .col img')
+for (let i = 0; i < birdImage.length; i++) {
+    birdArr.push(birdImage[i].attr('class'))
+}
+
+console.log (birdArr);
+
+// Assign event to each bird image
 
     const sojkaImg = $('.sojka');
     const sojkaSnd = new Audio ('sounds/porg.mp3')
