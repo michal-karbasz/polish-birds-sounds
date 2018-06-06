@@ -16,8 +16,8 @@ $(function () {
     birdName.on ('click', function() {
        const $this = $(this);
        $this.parent().parent().find('.description p').slideToggle();
-       titName.css('display', 'block');
-       titImage.css('display', 'block');
+       titName.css('display') == 'none' ? titName.css('display', 'block') : titName.css('display', 'none');
+       titImage.css('display') == 'none' ? titImage.css('display', 'block') : titImage.css('display', 'none');
     })
 
 //Add sound icon on mouse enter remove on mouseleave
