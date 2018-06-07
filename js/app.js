@@ -41,30 +41,45 @@ $(function () {
 // Add sounds on image click
 
 // Push all birds to an array
-console.log(birdImage)
 const birdArr = [];
 const birds = $('.flex-row .col img')
 for (let i = 0; i < birdImage.length; i++) {
-    birdArr.push(birdImage[i].attr('class'))
+    birdArr.push($(birdImage[i]).attr('class'))
 }
-
-console.log (birdArr);
 
 // Assign event to each bird image
 
-    const sojkaImg = $('.sojka');
-    const sojkaSnd = new Audio ('sounds/porg.mp3')
+// create variable to hold current Audio object (HTML tag)
+let currentBird = '';
 
-
-    noteImage.on('click', '.sojka', function() {
-        playSound(sojkaSnd);
+$.each(birdArr, function (i, val) {
+    noteImage.on('click', '.' + val, function() {
+         if (currentBird == '') {
+             playSound(new Audio ('sounds/' + val + '.mp3'));
+             //if another bird is clicked stop playing currentBird and play the new one
+            } else if ($(currentBird).text().indexOf(val) === -1) {
+                stopSound();
+                playSound(new Audio ('sounds/' + val + '.mp3'));
+            // if the same bird is clicked just stop playing
+            } else {
+                stopSound();
+            }
     })
-
+})
 
 // function to run bird's voice - new Audio is the parameter
 
     function playSound(bird) {
-        bird.play();
+                bird.play();
+                currentBird = bird;
+            }
+
+// function to stop bird's voice
+
+    function stopSound() {
+        currentBird.pause();
+        currentBird.currentTime = 0;
+        currentBird = '';
     }
 
 });
