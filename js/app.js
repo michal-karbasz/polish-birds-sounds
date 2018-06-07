@@ -25,7 +25,7 @@ $(function () {
     birdImage.on('mouseover', function() {
         const $this = $(this);
         const notesImg = $('<img>')
-        notesImg.attr('src', 'img/sing.jpg');
+        notesImg.attr('src', 'img/play.png');
         notesImg.addClass('notes');
         notesImg.addClass($this.attr('class'))
         $this.parent().append(notesImg);
