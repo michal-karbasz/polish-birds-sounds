@@ -1,6 +1,5 @@
 $(function () {
 
-
 // Slide down/up on click
     
     const birdName = $('.flex-container span');
@@ -10,14 +9,15 @@ $(function () {
     const noteImage = $('.flex-container .col');
     const birdImage = $('.flex-container .col>img');
 
-
     description.slideUp();
 
     birdName.on ('click', function() {
-       const $this = $(this);
+       const $this = $(this)
        $this.parent().parent().find('.description p').slideToggle();
+       if ($this.parent().find('img').attr('class') === 'bogatka') {
        titName.css('display') == 'none' ? titName.css('display', 'block') : titName.css('display', 'none');
        titImage.css('display') == 'none' ? titImage.css('display', 'block') : titImage.css('display', 'none');
+       }
     })
 
 //Add sound icon on mouse enter remove on mouseleave
@@ -31,7 +31,6 @@ $(function () {
         $this.parent().append(notesImg);
     
     })
-
 
     noteImage.on('mouseleave', '.notes', function() {
         const $this = $(this);
@@ -56,8 +55,10 @@ $.each(birdArr, function (i, val) {
     noteImage.on('click', '.' + val, function() {
          if (currentBird == '') {
              playSound(new Audio ('sounds/' + val + '.mp3'));
+             console.log(currentBird);
+             console.log(val)
              //if another bird is clicked stop playing currentBird and play the new one
-            } else if ($(currentBird).text().indexOf(val) === -1) {
+            } else if ($(currentBird).attr('src').indexOf(val) === -1) {
                 stopSound();
                 playSound(new Audio ('sounds/' + val + '.mp3'));
             // if the same bird is clicked just stop playing
