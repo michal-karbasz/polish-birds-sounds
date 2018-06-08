@@ -1,5 +1,11 @@
 $(function () {
 
+    const headerBird = $('<img>');
+    $(headerBird).attr('src','img/header-icon' + Math.floor(Math.random()* (12 - 1) + 1).toString() + '.png')
+    headerBird.insertBefore($('header').find('h1'));
+
+   let random = (Math.floor(Math.random()* (12 - 1) + 1));
+   console.log (random)
 // Slide down/up on click
     
     const birdName = $('.flex-container span');
