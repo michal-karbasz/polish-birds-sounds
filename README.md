@@ -3,4 +3,4 @@ Click on a bird image to hear its sound, click on its name to read more. An exce
 
 As long as image name and the corresponding sound file name are the same, new birds may be added at will thanks to a $each loop.
 
-<img src='screenshot.png' />
+<img src='screenshot.PNG' />
