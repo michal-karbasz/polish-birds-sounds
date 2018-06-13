@@ -31,9 +31,9 @@ $(function () {
     birdImage.on('mouseover', function() {
         const $this = $(this);
         const notesImg = $('<img>')
-        notesImg.attr('src', 'img/play.png');
+        notesImg.attr('src', 'img/sing.jpg');
         notesImg.addClass('notes');
-        notesImg.addClass($this.attr('class'))
+        notesImg.addClass($this.attr('class'));
         $this.parent().append(notesImg);
     
     })
@@ -61,8 +61,6 @@ $.each(birdArr, function (i, val) {
     noteImage.on('click', '.' + val, function() {
          if (currentBird == '') {
              playSound(new Audio ('sounds/' + val + '.mp3'));
-             console.log(currentBird);
-             console.log(val)
              //if another bird is clicked stop playing currentBird and play the new one
             } else if ($(currentBird).attr('src').indexOf(val) === -1) {
                 stopSound();
